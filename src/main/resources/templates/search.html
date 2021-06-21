@@ -10,6 +10,7 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
+
     <form th:action="@{/search/results}" method = "post">
         <h2>Search by:</h2>
 
@@ -36,7 +37,33 @@
 
     <hr />
 
-    <!-- TODO #4 - Loop over the search results to display all job fields. -->
+    <th:block class = "techjobs"th:each = "jobs : ${jobs}" >
+        <table class = "job-listing">
+            <tr>
+                <th>ID: </th>
+                <td th:text = "${jobs.id}"></td>
+            <tr>
+                <th>Name: </th>
+                <td th:text = "${jobs.name}"></td>
+            </tr>
+            <tr>
+                <th>Employer : </th>
+                <td th:text = "${jobs.employer}"></td>
+            </tr>
+            <tr>
+                <th>Location: </th>
+                <td th:text = "${jobs.location}"></td>
+            </tr>
+            <tr>
+                <th>Position Type: </th>
+                <td th:text = "${jobs.positionType}"></td>
+            </tr>
+            <tr>
+                <th>Skill: </th>
+                <td th:text = "${jobs.coreCompetency}"></td>
+            </tr>
+        </table>
+    </th:block>
 
 </div>
 
